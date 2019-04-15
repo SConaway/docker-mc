@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+apk add --no-cache \
+  curl \
+  tar \
+  gzip \
+  python3 \
+  py3-pip \
+
+pip3 install mcstatus
+
+
+LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/itzg/mc-server-runner/releases/latest)
+LATEST_VERSION=$(echo "$LATEST_RELEASE" | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+RUNNER_URL="https://github.com/itzg/mc-server-runner/releases/download/$LATEST_VERSION/mc-server-runner_"
+RUNNER_URL="$RUNNER_URL""$LATEST_VERSION""_linux_$ARCH.tar.gz"
+curl -L "$RUNNER_URL" | tar  xvz
+mv mc-server-runner /usr/local/bin
+
+apk del \
+  curl \
+  tar \
+  gzip \
+  py3-pip
