@@ -1,1 +1,1 @@
-# docker-mc [![Build Status](https://travis-ci.com/SConaway/docker-mc.svg?branch=master)](https://travis-ci.com/SConaway/docker-mc)
+# docker-mc [![Build Status](https://travis-ci.com/SConaway/docker-mc.svg?branch=master)](https://travis-ci.com/SConaway/docker-mc) [![Image Size](https://images.microbadger.com/badges/image/sconaway/docker-mc.svg)](https://microbadger.com/images/sconaway/docker-mc)
