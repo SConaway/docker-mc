@@ -1,4 +1,4 @@
-FROM openjdk:12-jre-alpine
+FROM openjdk:12
 
 ENV PORT=25565
 
