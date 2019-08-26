@@ -1,0 +1,40 @@
+version: '3.6'
+
+services:
+  minecraft:
+    image: sconaway/docker-mc
+    environment:
+      - PORT=26566
+      - INIT_MEMORY=64M
+      - MAX_MEMORY=4096M
+      - SERVER_JAR=minecraft_server.1.12.2.jar
+    restart: always
+    ports:
+      - "25565:25565"
+    volumes:
+      - "./data:/data"
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - mc
+  rcon:
+    image: itzg/rcon
+    depends_on:
+      - minecraft
+    ports:
+      - "4326:4326"
+      - "4327:4327"
+    volumes:
+      - "./rcon:/opt/rcon-web-admin/db"
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+    - mc
+
+
+networks:
+  mc:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.0.0.0/24
+
