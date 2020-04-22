@@ -20,6 +20,6 @@ WORKDIR /data
 
 RUN chmod +x /usr/local/bin/*
 
-HEALTHCHECK CMD mcstatus localhost:$PORT ping
+HEALTHCHECK --start-period=2m CMD mcstatus localhost:$PORT ping
 
 CMD ["/bin/bash", "/start"]
