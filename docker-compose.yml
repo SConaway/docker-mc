@@ -4,11 +4,12 @@ services:
   minecraft:
     image: sconaway/docker-mc
     environment:
-      - PORT=26566
+      - PORT=25565
       - INIT_MEMORY=64M
       - MAX_MEMORY=4096M
       - SERVER_JAR=minecraft_server.1.12.2.jar
-    restart: always
+    restart: unless-stopped
+    stop_grace_period: 1m
     ports:
       - "25565:25565"
     volumes:
