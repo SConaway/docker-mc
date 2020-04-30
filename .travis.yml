@@ -9,6 +9,6 @@ script:
   - docker build -t sconaway/docker-mc:11-jre-alpine .
   - docker push sconaway/docker-mc:11-jre-alpine
 
-# deploy:
-#   provider: script
-#   script: curl -X POST https://hooks.microbadger.com/images/sconaway/docker-mc/hJDdkonFlfbrL7lGp6NwBfGkryQ\=
+deploy:
+  provider: script
+  script: curl -X POST https://hooks.microbadger.com/images/sconaway/docker-mc/hJDdkonFlfbrL7lGp6NwBfGkryQ\=
