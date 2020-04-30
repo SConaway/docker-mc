@@ -20,4 +20,5 @@ JVM_OPTS="-Xms${INIT_MEMORY:-${MEMORY}} -Xmx${MAX_MEMORY:-${MEMORY}} ${JVM_OPTS}
 
 echo "Starting $SERVER_JAR with command:"
 echo "mc-server-runner java $JVM_XX_OPTS $JVM_OPTS -jar $SERVER_JAR $@ $EXTRA_ARGS"
+echo "Using Java version $(java --version)"
 exec mc-server-runner java $JVM_XX_OPTS $JVM_OPTS -jar $SERVER_JAR "$@" $EXTRA_ARGS
