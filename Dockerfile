@@ -1,4 +1,5 @@
-FROM openjdk:8-jre-alpine
+FROM adoptopenjdk/openjdk14:alpine-jre
+
 
 ENV PORT=25565
 

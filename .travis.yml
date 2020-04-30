@@ -9,7 +9,9 @@ before_script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --pa
 
 script:
   - docker build -t sconaway/docker-mc .
+  - docker tag sconaway/docker-mc sconaway/docker-mc:adopt14-jdk-alpine
   - docker push sconaway/docker-mc
+  - docker push sconaway/docker-mc:adopt14-jdk-alpine
 
 deploy:
   provider: script
